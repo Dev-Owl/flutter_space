@@ -3,15 +3,12 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 
-import 'package:flutter/services.dart';
 import 'package:flutter_space/game.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final program = await ui.FragmentProgram.compile(
-    spirv: (await rootBundle.load('assets/shaders/space.frag.spv')).buffer,
-    debugPrint: true,
-  );
+  final program =
+      await ui.FragmentProgram.fromAsset('assets/shaders/space.frag');
   await Flame.device.fullScreen();
   final game = FlutterSpace(program);
   runApp(MaterialApp(
