@@ -24,3 +24,4 @@ flutter:
   uses-material-design: true
   shaders:
     - assets/shaders/space.frag
+    - assets/shaders/anotherspace.frag

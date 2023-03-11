@@ -9,8 +9,12 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final program =
       await ui.FragmentProgram.fromAsset('assets/shaders/space.frag');
+
+  final anotherProgram =
+      await ui.FragmentProgram.fromAsset('assets/shaders/anotherspace.frag');
+
   await Flame.device.fullScreen();
-  final game = FlutterSpace(program);
+  final game = FlutterSpace(program, anotherProgram);
   runApp(MaterialApp(
     home: GameWidget(
       game: game,
